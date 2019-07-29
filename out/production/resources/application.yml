@@ -1,0 +1,9 @@
+# Server Setting
+server:
+  port: 9088
+
+# Spring Setting
+spring:
+  main:
+    banner-mode: "off"
+
