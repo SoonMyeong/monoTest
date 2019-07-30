@@ -35,7 +35,8 @@ public class Webflux {
         Mono<String> sendMesssage = webClient.post().uri("http://192.168.1.198:8088")
                                     .header("dstMRN","urn:mrn:mcl:vessel:dma:poul-lowenorn")
                                     .header("srcMRN","a")
-                                    .syncBody(message).retrieve().bodyToMono(String.class);
+                                    .syncBody(message).retrieve().bodyToMono(String.class)
+                                    .doOnTerminate(()->{System.out.println("연결종료");});
         //push
 
         sendMesssage.subscribe(
